@@ -2,9 +2,10 @@
 
 ## Pranjal Modi
 
-### date x
+### 5/22/24
 
-info
+- Created a git branch 'pmodi'.
+- Continued looking into previous deployments of the SHA-256 algorithm as an example for SHA-512 implementations.
 
 ### date y
 
