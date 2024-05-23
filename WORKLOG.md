@@ -16,7 +16,8 @@ info
 
 ### 5/22/24
 
--created git branch
+- created git branch 'raymond'
+- started writing README with information about SHA-512
 
 ### date y
 
