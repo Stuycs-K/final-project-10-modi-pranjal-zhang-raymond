@@ -11,7 +11,7 @@
 
 - Created a 'src' folder to hold all of the code (for now, a helper file and the main file, both in Python).
 - Coded some helper functions regarding bitstrings, message padding, and zeros padding into the helper file.
-
+- Finished entire message padding functionality (preparation of message *mainly* done).
 
 ## Raymond Zhang
 
