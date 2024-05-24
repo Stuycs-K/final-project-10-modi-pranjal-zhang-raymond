@@ -72,3 +72,12 @@ def splitIntoBlocks(paddedStr){
 #     finalStr = str(AA) + str(BB) + str(CC) + str(DD) + str(EE) + str(FF) + str(GG) + str(HH)
 #     return finalStr
 # }
+
+# algorithm
+# W(t) = σ¹(Wᵗ⁻²) + Wᵗ⁻⁷ + σ⁰(Wᵗ⁻¹⁵) + Wᵗ⁻¹⁶
+# where,
+#  σ⁰(x)    = ROTR¹(x) ϕ ROTR⁸(x) ϕ SHR⁷(x)
+#  σ¹(x)    = ROTR¹⁹(x) ϕ ROTR⁶¹(x) ϕ SHR⁶(x)
+#  ROTRⁿ(x) = Circular right rotation of 'x' by 'n' bits
+#  SHRⁿ(x)  = Circular right shift of 'x' by 'n' bits
+#  ϕ        = addition modulo 2⁶⁴ 
