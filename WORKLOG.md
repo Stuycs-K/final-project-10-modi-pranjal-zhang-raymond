@@ -7,9 +7,10 @@
 - Created a git branch 'pmodi'.
 - Continued looking into previous deployments of the SHA-256 algorithm as an example for SHA-512 implementations.
 
-### date y
+### 5/23/24
 
-info
+- Created a 'src' folder to hold all of the code (for now, a helper file and the main file, both in Python).
+- Coded some helper functions regarding bitstrings, message padding, and zeros padding into the helper file.
 
 
 ## Raymond Zhang
