@@ -26,4 +26,9 @@
 - imported constants into SHA512 file
 - currently in the process of learning more about how the hashes are processed so that I can write the processBlock function
 
+### 5/24/24
+
+- helper functions merged into src/byteFunc.py
+- researched hash function with the 80 iterations
+
 info
