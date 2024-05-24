@@ -28,5 +28,14 @@ list_constants = [int("428a2f98d728ae22", 16), int("7137449123ef65cd", 16), int(
 
 print(list_constants[0])
 
+a = 0x6a09e667f3bcc908
+b = 0xbb67ae8584caa73b
+c = 0x3c6ef372fe94f82b
+d = 0xa54ff53a5f1d36f1
+e = 0x510e527fade682d1
+f = 0x9b05688c2b3e6c1f
+g = 0x1f83d9abfb41bd6b
+h = 0x5be0cd19137e2179
+
 # int A, B, C, D, E, F, G, H
 # list_64bit = [A,B,C,D,E,F,G,H]
