@@ -13,6 +13,12 @@
 - Coded some helper functions regarding bitstrings, message padding, and zeros padding into the helper file.
 - Finished entire message padding functionality (preparation of message *mainly* done).
 
+### 5/24/24
+
+- Implemented a binary adder, which has an implemented carry-in bit, of two bitstrings of the same length.
+- Added some elementary bitstring manipulation operations, including right and left-rotation.
+- Planned a bit ahead as to integration of these helper functions into the main algorithm.
+
 ## Raymond Zhang
 
 ### 5/22/24

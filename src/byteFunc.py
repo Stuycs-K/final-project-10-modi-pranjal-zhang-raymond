@@ -44,4 +44,30 @@ def padMsg(message):
     lenMessageBits = surroundZeros(strToBitStr(str(len(message))), 128, "F")
     return paddedStr + lenMessageBits
 
-    
+def rotateRight(bitString, num):
+    part1 = bitString[-num:]
+    part2 = bitString[:-num]
+    return part1 + part2
+
+def rotateLeft(bitString, num):
+    part1 = bitString[num:]
+    part2 = bitString[:num]
+    return part1 + part2
+
+def binAdd(bString1, bString2):
+    # Assume len(bString1) = len(bString2)
+    bStrLen = len(bString1)
+    totString = ""
+    curPos = bStrLen - 1
+    carryIn = 0
+    while curPos >= 0:
+        b1Int = int(bString1[curPos])
+        b2Int = int(bString2[curPos])
+        totString = str(((b1Int ^ b2Int) ^ carryIn)) + totString
+        if (b1Int + b2Int + carryIn) >= 2:
+            carryIn = 1
+        else:
+            carryIn = 0
+        curPos -= 1
+    return totString
+
