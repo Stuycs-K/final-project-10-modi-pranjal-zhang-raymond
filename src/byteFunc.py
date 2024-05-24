@@ -31,5 +31,17 @@ def chunkSplit(bitstring, chunkLength = 512):
 
 def padMsg(message):
     bitMsg = strToBitStr(message)
-    lenMessageBits = surroundZeros(strToBitStr(str(len(message))), 64, "F")
+    bitMsgLen = len(bitMsg)
+    extraMults = 0
+    for i in range(1, 3):
+        if (((bitMsgLen // 1028) + i) * 1028 - bitMsgLen) >= 128:
+            extraMults = i
+            break
+    desiredLength = ((bitMsgLen // 1028) + extraMults) * 1028 - 128
+    paddedStr = bitMsg
+    if desiredLength != bitMsgLen:
+        paddedStr = bitMsg + "1" + "0" * (desiredLength - bitMsgLen - 1)
+    lenMessageBits = surroundZeros(strToBitStr(str(len(message))), 128, "F")
+    return paddedStr + lenMessageBits
+
     
