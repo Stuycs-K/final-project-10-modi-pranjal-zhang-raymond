@@ -27,5 +27,6 @@ list_constants = [int("428a2f98d728ae22", 16), int("7137449123ef65cd", 16), int(
         int("5fcb6fab3ad6faec", 16), int("6c44198c4a475817", 16)]
 
 print(list_constants[0])
+
 # int A, B, C, D, E, F, G, H
 # list_64bit = [A,B,C,D,E,F,G,H]
