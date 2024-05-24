@@ -19,6 +19,10 @@ info
 - created git branch 'raymond'
 - started writing README with information about SHA-512
 
-### date y
+### 5/23/24
+
+- wrote helper function splitIntoBlocks
+- imported constants into SHA512 file
+- currently in the process of learning more about how the hashes are processed so that I can write the processBlock function
 
 info
