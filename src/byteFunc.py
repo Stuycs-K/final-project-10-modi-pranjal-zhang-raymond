@@ -139,8 +139,8 @@ def largeSigma1(x):
     b3 = int(rotateRight(x, 41), 2)
 
 def smallSigma0(x): 
-    b1 = int(rotateRight(x, 14), 2)    
-    b2 = int(rotateRight(x, 18), 2)
+    b1 = int(rotateRight(x, 1), 2)    
+    b2 = int(rotateRight(x, 8), 2)
     b3 = int(x, 2) >> 7
 
 def smallSigma1(x):
