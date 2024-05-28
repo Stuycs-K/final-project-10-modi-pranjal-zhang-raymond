@@ -48,3 +48,8 @@
 
 - completed large and small sigma functions
 - found conflicting algorithms for implementation of SHA-512, will investigate
+
+### 5/28/24
+
+-merged sigma functions onto main
+-peer programmed with Pranjal on process function
