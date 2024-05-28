@@ -19,6 +19,11 @@
 - Added some elementary bitstring manipulation operations, including right and left-rotation.
 - Planned a bit ahead as to integration of these helper functions into the main algorithm.
 
+### 5/27/24
+
+- Continued research into SHA-512 algorithm, along with possible ways to employ the recently-created bit rotators.
+- Sketched out in a separate doc a play-by-play for the algorithm.
+
 ## Raymond Zhang
 
 ### 5/22/24

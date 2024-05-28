@@ -44,8 +44,8 @@ def padMsg(message):
     lenMessageBits = surroundZeros(strToBitStr(str(len(message))), 128, "F")
     return paddedStr + lenMessageBits
     
-def splitIntoBlocks(paddedStr){
-    int numBlocks
+def splitIntoBlocks(paddedStr):
+    numBlocks = 0
     if len(paddedStr) % 1024 == 0:
         numBlocks = len(paddedStr) / 1024
     else:
@@ -54,7 +54,6 @@ def splitIntoBlocks(paddedStr){
     for x in range(0, len(paddedStr), 1024):
         listBlocks.append(paddedStr[x:x+1024])
     return listBlocks
-}
 
 '''
 def processBlocks(listBlocks){
@@ -101,4 +100,6 @@ def binAdd(bString1, bString2):
             carryIn = 0
         curPos -= 1
     return totString
+
+
 
