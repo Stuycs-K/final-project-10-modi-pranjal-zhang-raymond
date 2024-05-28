@@ -103,3 +103,47 @@ def binAdd(bString1, bString2):
 
 
 
+#     AA = hex(A)
+#     BB = hex(B)
+#     CC = hex(C)
+#     DD = hex(D)
+#     EE = hex(E)
+#     FF = hex(F)
+#     GG = hex(G)
+#     HH = hex(H)
+#     finalStr = str(AA) + str(BB) + str(CC) + str(DD) + str(EE) + str(FF) + str(GG) + str(HH)
+#     return finalStr
+# }
+
+# algorithm
+# W(t) = σ¹(Wᵗ⁻²) + Wᵗ⁻⁷ + σ⁰(Wᵗ⁻¹⁵) + Wᵗ⁻¹⁶
+# where,
+#  σ⁰(x)    = ROTR¹(x) ϕ ROTR⁸(x) ϕ SHR⁷(x)
+#  σ¹(x)    = ROTR¹⁹(x) ϕ ROTR⁶¹(x) ϕ SHR⁶(x)
+#  ROTRⁿ(x) = Circular right rotation of 'x' by 'n' bits
+#  SHRⁿ(x)  = Circular right shift of 'x' by 'n' bits
+#  ϕ        = addition modulo 2⁶⁴ 
+
+
+# x has to be 64 bit
+# reminder for Pranjal to implement additional parameter for rotateright
+
+def largeSigma0(x):
+    b1 = int(rotateRight(x, 28), 2)    
+    b2 = int(rotateRight(x, 34), 2)
+    b3 = int(rotateRight(x, 39), 2)
+
+def largeSigma1(x):
+    b1 = int(rotateRight(x, 14), 2)    
+    b2 = int(rotateRight(x, 18), 2)
+    b3 = int(rotateRight(x, 41), 2)
+
+def smallSigma0(x): 
+    b1 = int(rotateRight(x, 14), 2)    
+    b2 = int(rotateRight(x, 18), 2)
+    b3 = int(x, 2) >> 7
+
+def smallSigma1(x):
+    b1 = int(rotateRight(x, 19), 2)    
+    b2 = int(rotateRight(x, 61), 2)
+    b3 = int(x, 2) >> 6
