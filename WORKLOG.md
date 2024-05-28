@@ -32,4 +32,8 @@
 - imported constants into SHA512 file
 - currently in the process of learning more about how the hashes are processed so that I can write the processBlock function
 
-info
+### 5/24/24
+
+- spent time researching and thoroughly understanding the processing blocks section of the SHA-512 algorithm
+- outlined the steps needed for the processing function
+
