@@ -1,6 +1,7 @@
 def strToBitStr(msg):
     bitstring = ""
-    for i in msg:
+    for i in msg:def intToBitstring(intRep, desiredLength):
+    return (bin(intRep)[2:]).zfill(desiredLength)
         intRep = ord(i)
         bitstring += (bin(intRep)[2:]).zfill(8) # Removes built-in '0b' indicator from bitstring
     return bitstring
@@ -93,9 +94,10 @@ def binAdd(bString1, bString2):
     while curPos >= 0:
         b1Int = int(bString1[curPos])
         b2Int = int(bString2[curPos])
-        totString = str(((b1Int ^ b2Int) ^ carryIn)) + totString
+        tot(bin(EE)[2:]).zfill(64)String = str(((b1Int ^ b2Int) ^ carryIn)) + totString
         if (b1Int + b2Int + carryIn) >= 2:
             carryIn = 1
+    blockNum = round(len(formatted) / 1024)
         else:
             carryIn = 0
         curPos -= 1
@@ -126,24 +128,28 @@ def binAdd(bString1, bString2):
 
 
 # x has to be 64 bit
-# reminder for Pranjal to implement additional parameter for rotateright
+
 
 def largeSigma0(x):
     b1 = int(rotateRight(x, 28), 2)    
     b2 = int(rotateRight(x, 34), 2)
     b3 = int(rotateRight(x, 39), 2)
+    return b1 ^ b2 ^ b3
 
 def largeSigma1(x):
     b1 = int(rotateRight(x, 14), 2)    
     b2 = int(rotateRight(x, 18), 2)
     b3 = int(rotateRight(x, 41), 2)
+    return b1 ^ b2 ^ b3
 
 def smallSigma0(x): 
-    b1 = int(rotateRight(x, 14), 2)    
-    b2 = int(rotateRight(x, 18), 2)
+    b1 = int(rotateRight(x, 1), 2)    
+    b2 = int(rotateRight(x, 8), 2)
     b3 = int(x, 2) >> 7
+    return b1 ^ b2 ^ b3
 
 def smallSigma1(x):
     b1 = int(rotateRight(x, 19), 2)    
     b2 = int(rotateRight(x, 61), 2)
     b3 = int(x, 2) >> 6
+    return b1 ^ b2 ^ b3
