@@ -81,3 +81,27 @@ def splitIntoBlocks(paddedStr){
 #  ROTRⁿ(x) = Circular right rotation of 'x' by 'n' bits
 #  SHRⁿ(x)  = Circular right shift of 'x' by 'n' bits
 #  ϕ        = addition modulo 2⁶⁴ 
+
+
+# x has to be 64 bit
+# reminder for Pranjal to implement additional parameter for rotateright
+
+def largeSigma0(x):
+    b1 = int(rotateRight(x, 28), 2)    
+    b2 = int(rotateRight(x, 34), 2)
+    b3 = int(rotateRight(x, 39), 2)
+
+def largeSigma1(x):
+    b1 = int(rotateRight(x, 14), 2)    
+    b2 = int(rotateRight(x, 18), 2)
+    b3 = int(rotateRight(x, 41), 2)
+
+def smallSigma0(x): 
+    b1 = int(rotateRight(x, 14), 2)    
+    b2 = int(rotateRight(x, 18), 2)
+    b3 = int(x, 2) >> 7
+
+def smallSigma1(x):
+    b1 = int(rotateRight(x, 19), 2)    
+    b2 = int(rotateRight(x, 61), 2)
+    b3 = int(x, 2) >> 6
