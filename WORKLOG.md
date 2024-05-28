@@ -37,3 +37,7 @@
 - spent time researching and thoroughly understanding the processing blocks section of the SHA-512 algorithm
 - outlined the steps needed for the processing function
 
+### 5/27/24
+
+- completed large and small sigma functions
+- found conflicting algorithms for implementation of SHA-512, will investigate
