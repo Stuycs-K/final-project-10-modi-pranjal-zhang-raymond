@@ -2,8 +2,8 @@
 # THIS DOCUMENT IS REQUIRED
 ## Group Info
 
-### Group Name: 
-### Period: 
+### Group Name: Rayjal
+### Period: 10
 
 ## Overview
 
