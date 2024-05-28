@@ -13,6 +13,17 @@
 - Coded some helper functions regarding bitstrings, message padding, and zeros padding into the helper file.
 - Finished entire message padding functionality (preparation of message *mainly* done).
 
+### 5/24/24
+
+- Implemented a binary adder, which has an implemented carry-in bit, of two bitstrings of the same length.
+- Added some elementary bitstring manipulation operations, including right and left-rotation.
+- Planned a bit ahead as to integration of these helper functions into the main algorithm.
+
+### 5/27/24
+
+- Continued research into SHA-512 algorithm, along with possible ways to employ the recently-created bit rotators.
+- Sketched out in a separate doc a play-by-play for the algorithm.
+
 ## Raymond Zhang
 
 ### 5/22/24
@@ -30,5 +41,10 @@
 
 - helper functions merged into src/byteFunc.py
 - researched hash function with the 80 iterations
+- spent time researching and thoroughly understanding the processing blocks section of the SHA-512 algorithm
+- outlined the steps needed for the processing function
 
-info
+### 5/27/24
+
+- completed large and small sigma functions
+- found conflicting algorithms for implementation of SHA-512, will investigate

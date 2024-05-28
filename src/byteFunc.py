@@ -44,8 +44,8 @@ def padMsg(message):
     lenMessageBits = surroundZeros(strToBitStr(str(len(message))), 128, "F")
     return paddedStr + lenMessageBits
     
-def splitIntoBlocks(paddedStr){
-    int numBlocks
+def splitIntoBlocks(paddedStr):
+    numBlocks = 0
     if len(paddedStr) % 1024 == 0:
         numBlocks = len(paddedStr) / 1024
     else:
@@ -54,21 +54,52 @@ def splitIntoBlocks(paddedStr){
     for x in range(0, len(paddedStr), 1024):
         listBlocks.append(paddedStr[x:x+1024])
     return listBlocks
-}
 
-# def processBlocks(listBlocks){
-#     int A,B,C,D,E,F,G,H = None
-#     for x in listBlocks:
-#         s = hash(x) # what does it mean traverse 80 times & how do i get the hex variables to be 64 bit (nvm i have to import libraries)
+'''
+def processBlocks(listBlocks){
+     int A,B,C,D,E,F,G,H = None
+     for x in listBlocks:
+         s = hash(x) # what does it mean traverse 80 times & how do i get the hex variables to be 64 bit (nvm i have to import libraries)
 
-#     AA = hex(A)
-#     BB = hex(B)
-#     CC = hex(C)
-#     DD = hex(D)
-#     EE = hex(E)
-#     FF = hex(F)
-#     GG = hex(G)
-#     HH = hex(H)
-#     finalStr = str(AA) + str(BB) + str(CC) + str(DD) + str(EE) + str(FF) + str(GG) + str(HH)
-#     return finalStr
-# }
+     AA = hex(A)
+     BB = hex(B)
+     CC = hex(C)
+     DD = hex(D)
+     EE = hex(E)
+     FF = hex(F)
+     GG = hex(G)
+     HH = hex(H)
+     finalStr = str(AA) + str(BB) + str(CC) + str(DD) + str(EE) + str(FF) + str(GG) + str(HH)
+     return finalStr
+ }
+'''
+
+def rotateRight(bitString, num):
+    part1 = bitString[-num:]
+    part2 = bitString[:-num]
+    return part1 + part2
+
+def rotateLeft(bitString, num):
+    part1 = bitString[num:]
+    part2 = bitString[:num]
+    return part1 + part2
+
+def binAdd(bString1, bString2):
+    # Assume len(bString1) = len(bString2)
+    bStrLen = len(bString1)
+    totString = ""
+    curPos = bStrLen - 1
+    carryIn = 0
+    while curPos >= 0:
+        b1Int = int(bString1[curPos])
+        b2Int = int(bString2[curPos])
+        totString = str(((b1Int ^ b2Int) ^ carryIn)) + totString
+        if (b1Int + b2Int + carryIn) >= 2:
+            carryIn = 1
+        else:
+            carryIn = 0
+        curPos -= 1
+    return totString
+
+
+
