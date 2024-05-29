@@ -24,6 +24,11 @@
 - Continued research into SHA-512 algorithm, along with possible ways to employ the recently-created bit rotators.
 - Sketched out in a separate doc a play-by-play for the algorithm.
 
+### 5/28/24
+
+- Started working on the body of the SHA512 algorithm, implementing chunk processing, some manipulation of constants, and the framework for the rest of it.
+- Continued clarifying constant creation in byteFunc.
+
 ## Raymond Zhang
 
 ### 5/22/24

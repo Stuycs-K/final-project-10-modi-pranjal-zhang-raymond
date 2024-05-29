@@ -1,6 +1,7 @@
 def strToBitStr(msg):
     bitstring = ""
-    for i in msg:
+    for i in msg:def intToBitstring(intRep, desiredLength):
+    return (bin(intRep)[2:]).zfill(desiredLength)
         intRep = ord(i)
         bitstring += (bin(intRep)[2:]).zfill(8) # Removes built-in '0b' indicator from bitstring
     return bitstring
@@ -93,9 +94,10 @@ def binAdd(bString1, bString2):
     while curPos >= 0:
         b1Int = int(bString1[curPos])
         b2Int = int(bString2[curPos])
-        totString = str(((b1Int ^ b2Int) ^ carryIn)) + totString
+        tot(bin(EE)[2:]).zfill(64)String = str(((b1Int ^ b2Int) ^ carryIn)) + totString
         if (b1Int + b2Int + carryIn) >= 2:
             carryIn = 1
+    blockNum = round(len(formatted) / 1024)
         else:
             carryIn = 0
         curPos -= 1
@@ -126,7 +128,7 @@ def binAdd(bString1, bString2):
 
 
 # x has to be 64 bit
-# reminder for Pranjal to implement additional parameter for rotateright
+
 
 def ch(x, y, z):
     bx = int(x, 2)
