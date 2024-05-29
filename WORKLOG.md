@@ -51,5 +51,6 @@
 
 ### 5/28/24
 
--merged sigma functions onto main
--peer programmed with Pranjal on process function
+- merged sigma functions onto main
+- peer programmed with Pranjal on process function
+- completed ch and maj functions
