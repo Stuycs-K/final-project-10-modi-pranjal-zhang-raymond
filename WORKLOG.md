@@ -60,3 +60,7 @@
 - merged sigma functions onto main
 - peer programmed with Pranjal on process function
 - completed ch and maj functions
+
+### 
+
+- peer programmed with Pranjal on finishing process function & debugging (at this point, working on separate branches is less conducive to workflow)
