@@ -1,10 +1,12 @@
 def strToBitStr(msg):
     bitstring = ""
-    for i in msg:def intToBitstring(intRep, desiredLength):
-    return (bin(intRep)[2:]).zfill(desiredLength)
+    for i in msg:
         intRep = ord(i)
         bitstring += (bin(intRep)[2:]).zfill(8) # Removes built-in '0b' indicator from bitstring
     return bitstring
+
+def intToBitstring(intRep, desiredLength):
+    return (bin(intRep)[2:]).zfill(desiredLength)
 
 def bitStrToHex(bitstring):
     halfByteList = []
@@ -62,7 +64,7 @@ def processBlocks(listBlocks){
      for x in listBlocks:
          s = hash(x) # what does it mean traverse 80 times & how do i get the hex variables to be 64 bit (nvm i have to import libraries)
 
-     AA = hex(A)
+     AA = heconstList = byteFunc.rotateRight(constList, k)x(A)
      BB = hex(B)
      CC = hex(C)
      DD = hex(D)
@@ -94,10 +96,9 @@ def binAdd(bString1, bString2):
     while curPos >= 0:
         b1Int = int(bString1[curPos])
         b2Int = int(bString2[curPos])
-        tot(bin(EE)[2:]).zfill(64)String = str(((b1Int ^ b2Int) ^ carryIn)) + totString
+        totString = str(((b1Int ^ b2Int) ^ carryIn)) + totString
         if (b1Int + b2Int + carryIn) >= 2:
             carryIn = 1
-    blockNum = round(len(formatted) / 1024)
         else:
             carryIn = 0
         curPos -= 1
@@ -167,7 +168,7 @@ def smallSigma0(x):
     return b1 ^ b2 ^ b3
 
 def smallSigma1(x):
-    b1 = int(rotateRight(x, 19), 2)    
+    b1 = int(rotateRight(x, 19), 2)
     b2 = int(rotateRight(x, 61), 2)
     b3 = int(x, 2) >> 6
     return b1 ^ b2 ^ b3

@@ -30,6 +30,11 @@
 - Continued clarifying constant creation in byteFunc.
 - Researched into how to cycle variables in the SHA512 main loop.
 
+### 5/29/24
+
+- Completed a rudimentary form of the SHA512 algorithm in SHA512.py. Began debugging the various errors that cropped up, including type mismatches and unexpected length changes.
+- Implemented the final for loop in the SHA512 algorithm, which updates the constants of the program repeatedly.
+
 ## Raymond Zhang
 
 ### 5/22/24
