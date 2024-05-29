@@ -128,22 +128,44 @@ def binAdd(bString1, bString2):
 # x has to be 64 bit
 # reminder for Pranjal to implement additional parameter for rotateright
 
+def ch(x, y, z):
+    bx = int(x, 2)
+    by = int(y, 2)
+    bz = int(z, 2)
+    bxy = bx & by
+    bxz = ~bx & bz 
+    return bxy ^ bxz
+
+def maj(x, y, z):
+    bx = int(x, 2)
+    by = int(y, 2)
+    bz = int(z, 2)
+    bxy = bx & by
+    bxz = bx & bz
+    byz = by & bz
+    return bxy ^ bxz ^ byz
+
+
 def largeSigma0(x):
     b1 = int(rotateRight(x, 28), 2)    
     b2 = int(rotateRight(x, 34), 2)
     b3 = int(rotateRight(x, 39), 2)
+    return b1 ^ b2 ^ b3
 
 def largeSigma1(x):
     b1 = int(rotateRight(x, 14), 2)    
     b2 = int(rotateRight(x, 18), 2)
     b3 = int(rotateRight(x, 41), 2)
+    return b1 ^ b2 ^ b3
 
 def smallSigma0(x): 
     b1 = int(rotateRight(x, 1), 2)    
     b2 = int(rotateRight(x, 8), 2)
     b3 = int(x, 2) >> 7
+    return b1 ^ b2 ^ b3
 
 def smallSigma1(x):
     b1 = int(rotateRight(x, 19), 2)    
     b2 = int(rotateRight(x, 61), 2)
     b3 = int(x, 2) >> 6
+    return b1 ^ b2 ^ b3
