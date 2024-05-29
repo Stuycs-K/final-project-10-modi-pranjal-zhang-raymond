@@ -28,6 +28,7 @@
 
 - Started working on the body of the SHA512 algorithm, implementing chunk processing, some manipulation of constants, and the framework for the rest of it.
 - Continued clarifying constant creation in byteFunc.
+- Researched into how to cycle variables in the SHA512 main loop.
 
 ## Raymond Zhang
 
