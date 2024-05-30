@@ -70,3 +70,7 @@
 
 - peer programmed with Pranjal on finishing process function & debugging (at this point, working on separate branches is less conducive to workflow)
 - more research into clarifying types of inputs and outputs of helper functions (we believe that's our main issue)
+
+### 5/30/24 
+
+- peer programming: we worked out all the syntax errors, now we need to figure out why our hash is so long (and therefore incorrect)
