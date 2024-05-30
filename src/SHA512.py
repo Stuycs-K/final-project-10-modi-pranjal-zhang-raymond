@@ -28,8 +28,6 @@ list_constants = [int("428a2f98d728ae22", 16), int("7137449123ef65cd", 16), int(
         int("431d67c49c100d4c", 16), int("4cc5d4becb3e42b6", 16), int("597f299cfc657e2a", 16),
         int("5fcb6fab3ad6faec", 16), int("6c44198c4a475817", 16)]
 
-print(list_constants[0])
-
 a = 0x6a09e667f3bcc908
 b = 0xbb67ae8584caa73b
 c = 0x3c6ef372fe94f82b
@@ -39,22 +37,27 @@ f = 0x9b05688c2b3e6c1f
 g = 0x1f83d9abfb41bd6b
 h = 0x5be0cd19137e2179
 
-def processFunc(constantList, count, curBlock):
-    valOne = constantList[7] + byteFunc.ch(constantList[4], constantList[5], constantList[6]) + largeSigma1((bin(constantList[4])[2:]).zfill(64)) + int(curBlock[count], 2) + list_constants[count]
-    valTwo = largeSigma0((bin(constantList[0])[2:]).zfill(64)) + byteFunc.maj(constantList[0], constantList[1], constantList[2])
+def processFunc(constantList, count, curList):
+    valOne = constantList[7] + byteFunc.ch(constantList[4], constantList[5], constantList[6]) + byteFunc.largeSigma1((bin(constantList[4])[2:])) + int(curList[count], 2) + list_constants[count]
+    valTwo = byteFunc.largeSigma0((bin(constantList[0])[2:])) + byteFunc.maj(constantList[0], constantList[1], constantList[2])
     constantList[3] = constantList[3] + valOne
     constantList[7] = valOne + valTwo
 
 def sha512(message):
+    global a, b, c, d, e, f, g, h
     formatted = byteFunc.padMsg(message)
+    # print(len(formatted))
     blockNum = round(len(formatted) / 1024)
     chunks = byteFunc.splitIntoBlocks(formatted)
+    # print(chunks)
     fullComponentList = []
     for i in chunks:
         chunk = byteFunc.chunkSplit(i, chunkLength = 64)
+        # print(chunk)
         for i in range(64):
             chunk.append("")
         fullComponentList.append(chunk)
+    
     for i in fullComponentList:
         for subchunkInd in range(16, 80):
             wordOne = byteFunc.smallSigma1(i[subchunkInd - 2])
@@ -62,7 +65,12 @@ def sha512(message):
             wordThree = byteFunc.smallSigma0(i[subchunkInd - 15])
             wordFour = int(i[subchunkInd - 16], 2)
             sumWords = wordOne + wordTwo + wordThree + wordFour
+            # sumWords = byteFunc.binAdd(byteFunc.intToBitstring(wordOne, 64), byteFunc.binAdd(byteFunc.intToBitstring(wordTwo, 64), byteFunc.binAdd(byteFunc.intToBitstring(wordThree, 64), byteFunc.intToBitstring(wordFour, 64))))
+            # print((bin(sumWords)[2:]).zfill(64))
             i[subchunkInd] = (bin(sumWords)[2:]).zfill(64)
+            # print(sumWords)
+            # i[subchunkInd] = sumWords
+    # print(fullComponentList)
     for i in fullComponentList:
         for j in i:
             A = a
@@ -77,9 +85,11 @@ def sha512(message):
             counter = 0
             for h in range(10):
                 constList = byteFunc.rotateRight(constList, 1)
+                # print(constList)
                 for k in range(8):
                     constList = byteFunc.rotateRight(constList, k)
-                    processFunc(constList, counter, j)
+                    # print(constList)
+                    processFunc(constList, counter, i)
                     counter += 1
             a += constList[7]
             b += constList[0]
@@ -89,7 +99,7 @@ def sha512(message):
             f += constList[4]
             g += constList[5]
             h += constList[6]
-    return str(a) + str(b) + str(c) + str(d) + str(e) + str(f) + str(g) + str(h)
+    return str(hex(a + b + c + d + e + f + g + h))
 
 print(sha512("hi"))
 

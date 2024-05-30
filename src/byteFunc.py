@@ -37,10 +37,10 @@ def padMsg(message):
     bitMsgLen = len(bitMsg)
     extraMults = 0
     for i in range(1, 3):
-        if (((bitMsgLen // 1028) + i) * 1028 - bitMsgLen) >= 128:
+        if (((bitMsgLen // 1024) + i) * 1024 - bitMsgLen) >= 128:
             extraMults = i
             break
-    desiredLength = ((bitMsgLen // 1028) + extraMults) * 1028 - 128
+    desiredLength = ((bitMsgLen // 1024) + extraMults) * 1024 - 128
     paddedStr = bitMsg
     if desiredLength != bitMsgLen:
         paddedStr = bitMsg + "1" + "0" * (desiredLength - bitMsgLen - 1)
@@ -132,17 +132,17 @@ def binAdd(bString1, bString2):
 
 
 def ch(x, y, z):
-    bx = int(x, 2)
-    by = int(y, 2)
-    bz = int(z, 2)
+    bx = x
+    by = y
+    bz = z
     bxy = bx & by
     bxz = ~bx & bz 
     return bxy ^ bxz
 
 def maj(x, y, z):
-    bx = int(x, 2)
-    by = int(y, 2)
-    bz = int(z, 2)
+    bx = x
+    by = y
+    bz = z
     bxy = bx & by
     bxz = bx & bz
     byz = by & bz
@@ -168,6 +168,7 @@ def smallSigma0(x):
     return b1 ^ b2 ^ b3
 
 def smallSigma1(x):
+    # print(rotateRight(x, 19))
     b1 = int(rotateRight(x, 19), 2)
     b2 = int(rotateRight(x, 61), 2)
     b3 = int(x, 2) >> 6

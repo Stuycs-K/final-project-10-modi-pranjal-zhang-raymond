@@ -35,6 +35,11 @@
 - Completed a rudimentary form of the SHA512 algorithm in SHA512.py. Began debugging the various errors that cropped up, including type mismatches and unexpected length changes.
 - Implemented the final for loop in the SHA512 algorithm, which updates the constants of the program repeatedly.
 
+### 5/30/24
+
+- Worked out the bugs to get a working SHA512 program, though the results don't match the calculator.
+- Primarily focused on debugging and fixing type errors throughout the code.
+
 ## Raymond Zhang
 
 ### 5/22/24
