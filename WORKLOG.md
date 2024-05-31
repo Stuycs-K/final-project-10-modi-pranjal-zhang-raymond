@@ -75,3 +75,7 @@
 
 - peer programming: we worked out all the syntax errors, now we need to figure out why our hash is so long (and therefore incorrect)
 - spent ~20 minutes at home looking through logic, didn't find anything so far
+
+### 5/31/24 
+
+- peer programming yielded problem with surroundZero function, fixed, so we now have correct array of binaries
