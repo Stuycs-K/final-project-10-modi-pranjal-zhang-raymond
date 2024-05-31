@@ -37,14 +37,9 @@ f = 0x9b05688c2b3e6c1f
 g = 0x1f83d9abfb41bd6b
 h = 0x5be0cd19137e2179
 
-def processFunc(constantList, count, curList):
-    valOne = constantList[7] + byteFunc.ch(constantList[4], constantList[5], constantList[6]) + byteFunc.largeSigma1((bin(constantList[4])[2:])) + int(curList[count], 2) + list_constants[count]
-    valTwo = byteFunc.largeSigma0((bin(constantList[0])[2:])) + byteFunc.maj(constantList[0], constantList[1], constantList[2])
-    constantList[3] = constantList[3] + valOne
-    constantList[7] = valOne + valTwo
+initList = [0x6a09e667f3bcc908, 0xbb67ae8584caa73b, 0x3c6ef372fe94f82b, 0xa54ff53a5f1d36f1, 0x510e527fade682d1, 0x9b05688c2b3e6c1f, 0x1f83d9abfb41bd6b, 0x5be0cd19137e2179]
 
 def sha512(message):
-    global a, b, c, d, e, f, g, h
     formatted = byteFunc.padMsg(message)
     # print(len(formatted))
     blockNum = round(len(formatted) / 1024)
@@ -72,38 +67,39 @@ def sha512(message):
             # i[subchunkInd] = sumWords
     # print(fullComponentList)
     for i in fullComponentList:
-        for j in i:
-            A = a
-            B = b
-            C = c
-            D = d
-            E = e
-            F = f
-            G = g
-            H = h
-            constList = [B, C, D, E, F, G, H, A]
-            counter = 0
-            for h in range(10):
-                constList = byteFunc.rotateRight(constList, 1)
-                # print(constList)
-                for k in range(8):
-                    constList = byteFunc.rotateRight(constList, k)
-                    # print(constList)
-                    processFunc(constList, counter, i)
-                    counter += 1
-            a += constList[7]
-            b += constList[0]
-            c += constList[1]
-            d += constList[2]
-            e += constList[3]
-            f += constList[4]
-            g += constList[5]
-            h += constList[6]
-    return str(hex(a + b + c + d + e + f + g + h))
+        A = initList[0]
+        B = initList[1]    
+        C = initList[2]
+        D = initList[3]
+        E = initList[4]
+        F = initList[5]
+        G = initList[6]
+        H = initList[7]
+        for j in range(0, 80, 1):
+            valOne = H + byteFunc.ch(E, F, G) + byteFunc.largeSigma1((bin(E)[2:])) + int(i[j], 2) + list_constants[j]
+            valTwo = byteFunc.largeSigma0((bin(A)[2:])) + byteFunc.maj(A, B, C)
+            H = G
+            G = F
+            F = E
+            E = D + valOne
+            D = C
+            C = B
+            B = A
+            A = valOne + valTwo
+        initList[0] += A
+        initList[1] += B
+        initList[2] += C
+        initList[3] += D
+        initList[4] += E
+        initList[5] += F
+        initList[6] += G
+        initList[7] += H
+    outputStr = ""
+    for i in range(8):
+        outputStr += str(hex(initList[i]))[2:]
+    return outputStr
 
 print(sha512("hi"))
-
-
 
 
              

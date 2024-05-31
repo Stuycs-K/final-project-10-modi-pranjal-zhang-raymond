@@ -39,6 +39,7 @@
 
 - Worked out the bugs to get a working SHA512 program, though the results don't match the calculator.
 - Primarily focused on debugging and fixing type errors throughout the code.
+- Focused on getting the output length to match 128.
 
 ## Raymond Zhang
 
