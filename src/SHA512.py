@@ -41,6 +41,7 @@ initList = [0x6a09e667f3bcc908, 0xbb67ae8584caa73b, 0x3c6ef372fe94f82b, 0xa54ff5
 
 def sha512(message):
     formatted = byteFunc.padMsg(message)
+    print(formatted)
     # print(len(formatted))
     blockNum = round(len(formatted) / 1024)
     chunks = byteFunc.splitIntoBlocks(formatted)
@@ -48,6 +49,7 @@ def sha512(message):
     fullComponentList = []
     for i in chunks:
         chunk = byteFunc.chunkSplit(i, chunkLength = 64)
+        # print(chunk)
         # print(chunk)
         for i in range(64):
             chunk.append("")
@@ -59,13 +61,13 @@ def sha512(message):
             wordTwo = int(i[subchunkInd - 7], 2)
             wordThree = byteFunc.smallSigma0(i[subchunkInd - 15])
             wordFour = int(i[subchunkInd - 16], 2)
-            sumWords = wordOne + wordTwo + wordThree + wordFour
-            # sumWords = byteFunc.binAdd(byteFunc.intToBitstring(wordOne, 64), byteFunc.binAdd(byteFunc.intToBitstring(wordTwo, 64), byteFunc.binAdd(byteFunc.intToBitstring(wordThree, 64), byteFunc.intToBitstring(wordFour, 64))))
+            # sumWords = wordOne + wordTwo + wordThree + wordFour
+            sumWords = byteFunc.binAdd(byteFunc.intToBitstring(wordOne, 64), byteFunc.binAdd(byteFunc.intToBitstring(wordTwo, 64), byteFunc.binAdd(byteFunc.intToBitstring(wordThree, 64), byteFunc.intToBitstring(wordFour, 64))))
             # print((bin(sumWords)[2:]).zfill(64))
-            i[subchunkInd] = (bin(sumWords)[2:]).zfill(64)
+            # i[subchunkInd] = (bin(sumWords)[2:]).zfill(64)
             # print(sumWords)
-            # i[subchunkInd] = sumWords
-    # print(fullComponentList)
+            i[subchunkInd] = sumWords
+    print(fullComponentList)
     for i in fullComponentList:
         A = initList[0]
         B = initList[1]    

@@ -41,6 +41,12 @@
 - Primarily focused on debugging and fixing type errors throughout the code.
 - Focused on getting the output length to match 128.
 
+### 5/31/24
+
+- Continued debugging, using a completed Java version to see what certain values were *supposed* to be via println commands.
+- Fixed the padding functionality, which incorrectly added the length to the end of the binary message.
+- Decided on the correct functionality for filling out the list of all components.
+
 ## Raymond Zhang
 
 ### 5/22/24

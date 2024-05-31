@@ -44,7 +44,7 @@ def padMsg(message):
     paddedStr = bitMsg
     if desiredLength != bitMsgLen:
         paddedStr = bitMsg + "1" + "0" * (desiredLength - bitMsgLen - 1)
-    lenMessageBits = surroundZeros(strToBitStr(str(len(message))), 128, "F")
+    lenMessageBits = intToBitstring(bitMsgLen, 128)
     return paddedStr + lenMessageBits
     
 def splitIntoBlocks(paddedStr):
