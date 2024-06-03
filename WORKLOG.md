@@ -79,3 +79,7 @@
 ### 5/31/24 
 
 - peer programming yielded problem with surroundZero function, fixed, so we now have correct array of binaries
+
+### 6/2/24
+
+- started detailing the README
