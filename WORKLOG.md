@@ -83,3 +83,7 @@
 ### 6/2/24
 
 - started detailing the README
+
+## 
+
+- peer programming yielded problems with signed & unsigned ints, more logical problems
