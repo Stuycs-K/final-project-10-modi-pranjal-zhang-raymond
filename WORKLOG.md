@@ -47,6 +47,11 @@
 - Fixed the padding functionality, which incorrectly added the length to the end of the binary message.
 - Decided on the correct functionality for filling out the list of all components.
 
+### 6/3/24
+
+- Started debugging the main part of the SHA512 function.
+- Started converting the main datatype of the program into integers.
+
 ## Raymond Zhang
 
 ### 5/22/24

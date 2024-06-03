@@ -57,17 +57,13 @@ def sha512(message):
     
     for i in fullComponentList:
         for subchunkInd in range(16, 80):
-            wordOne = byteFunc.smallSigma1(i[subchunkInd - 2])
-            wordTwo = int(i[subchunkInd - 7], 2)
-            wordThree = byteFunc.smallSigma0(i[subchunkInd - 15])
-            wordFour = int(i[subchunkInd - 16], 2)
-            # sumWords = wordOne + wordTwo + wordThree + wordFour
-            sumWords = byteFunc.binAdd(byteFunc.intToBitstring(wordOne, 64), byteFunc.binAdd(byteFunc.intToBitstring(wordTwo, 64), byteFunc.binAdd(byteFunc.intToBitstring(wordThree, 64), byteFunc.intToBitstring(wordFour, 64))))
-            # print((bin(sumWords)[2:]).zfill(64))
-            # i[subchunkInd] = (bin(sumWords)[2:]).zfill(64)
-            # print(sumWords)
-            i[subchunkInd] = sumWords
-    print(fullComponentList)
+            wordOne = byteFunc.smallSigma1(byteFunc.unsignedToSigned(int(i[subchunkInd - 2], 2)))
+            wordTwo = byteFunc.unsignedToSigned(int(i[subchunkInd - 7], 2))
+            wordThree = byteFunc.smallSigma0(byteFunc.unsignedToSigned(int(i[subchunkInd - 15], 2)))
+            wordFour = byteFunc.unsignedToSigned(int(i[subchunkInd - 16], 2))
+            sumWords = wordOne + wordTwo + wordThree + wordFour
+            # sumWords = byteFunc.binAdd(byteFunc.intToBitstring(wordOne, 64), byteFunc.binAdd(byteFunc.intToBitstring(wordTwo, 64), byteFunc.binAdd(byteFunc.intToBitstring(wordThree, 64), byteFunc.intToBitstring(wordFour, 64))))
+            i[subchunkInd] = byteFunc.intToBitstring(sumWords)
     for i in fullComponentList:
         A = initList[0]
         B = initList[1]    
@@ -78,8 +74,12 @@ def sha512(message):
         G = initList[6]
         H = initList[7]
         for j in range(0, 80, 1):
-            valOne = H + byteFunc.ch(E, F, G) + byteFunc.largeSigma1((bin(E)[2:])) + int(i[j], 2) + list_constants[j]
-            valTwo = byteFunc.largeSigma0((bin(A)[2:])) + byteFunc.maj(A, B, C)
+            valOne = H + byteFunc.ch(E, F, G) + byteFunc.largeSigma1(E) + byteFunc.unsignedToSigned(int(i[j], 2)) + list_constants[j]
+            print(byteFunc.largeSigma1(E))
+            print(byteFunc.ch(E, F, G))
+            print(byteFunc.unsignedToSigned(int(i[j], 2)))
+            print("-----------------------")
+            valTwo = byteFunc.largeSigma0(A) + byteFunc.maj(A, B, C)
             H = G
             G = F
             F = E

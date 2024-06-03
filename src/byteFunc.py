@@ -1,3 +1,5 @@
+import numpy as np
+
 def strToBitStr(msg):
     bitstring = ""
     for i in msg:
@@ -5,8 +7,13 @@ def strToBitStr(msg):
         bitstring += (bin(intRep)[2:]).zfill(8) # Removes built-in '0b' indicator from bitstring
     return bitstring
 
-def intToBitstring(intRep, desiredLength):
-    return (bin(intRep)[2:]).zfill(desiredLength)
+def intToBitstring(intRep, desiredLength = 64):
+    posString = bin(intRep)
+    if posString[0] == "-":
+        posString = posString[0] + posString[3:]
+    else:
+        posString = posString[2:]
+    return posString.zfill(desiredLength)
 
 def bitStrToHex(bitstring):
     halfByteList = []
@@ -77,10 +84,8 @@ def processBlocks(listBlocks){
  }
 '''
 
-def rotateRight(bitString, num):
-    part1 = bitString[-num:]
-    part2 = bitString[:-num]
-    return part1 + part2
+def rotateRight(ints, num):
+    return ints >> num | (ints << (len(intToBitstring(ints)) - num))
 
 def rotateLeft(bitString, num):
     part1 = bitString[num:]
@@ -150,26 +155,29 @@ def maj(x, y, z):
 
 
 def largeSigma0(x):
-    b1 = int(rotateRight(x, 28), 2)    
-    b2 = int(rotateRight(x, 34), 2)
-    b3 = int(rotateRight(x, 39), 2)
+    b1 = rotateRight(x, 28)
+    b2 = rotateRight(x, 34)
+    b3 = rotateRight(x, 39)
     return b1 ^ b2 ^ b3
 
 def largeSigma1(x):
-    b1 = int(rotateRight(x, 14), 2)    
-    b2 = int(rotateRight(x, 18), 2)
-    b3 = int(rotateRight(x, 41), 2)
+    b1 = rotateRight(x, 14)
+    b2 = rotateRight(x, 18)
+    b3 = rotateRight(x, 41)
     return b1 ^ b2 ^ b3
 
 def smallSigma0(x): 
-    b1 = int(rotateRight(x, 1), 2)    
-    b2 = int(rotateRight(x, 8), 2)
-    b3 = int(x, 2) >> 7
+    b1 = rotateRight(x, 1)
+    b2 = rotateRight(x, 8)
+    b3 = x >> 7
     return b1 ^ b2 ^ b3
 
 def smallSigma1(x):
     # print(rotateRight(x, 19))
-    b1 = int(rotateRight(x, 19), 2)
-    b2 = int(rotateRight(x, 61), 2)
-    b3 = int(x, 2) >> 6
+    b1 = rotateRight(x, 19)
+    b2 = rotateRight(x, 61)
+    b3 = x >> 6
     return b1 ^ b2 ^ b3
+
+def unsignedToSigned(x):
+    return x - (x >> 15 << 16)
