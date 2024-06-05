@@ -85,7 +85,7 @@ def processBlocks(listBlocks){
 '''
 
 def rotateRight(ints, num):
-    return ints >> num | (ints << (len(intToBitstring(ints)) - num))
+    return ints >> num | (ints << (64 - num)) & 0xFFFFFFFFFFFFFFFF
 
 def rotateLeft(bitString, num):
     part1 = bitString[num:]
@@ -181,3 +181,5 @@ def smallSigma1(x):
 
 def unsignedToSigned(x):
     return x - (x >> 15 << 16)
+
+print(rotateRight(5656, 2))
