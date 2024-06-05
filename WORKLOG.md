@@ -91,3 +91,7 @@
 ### 6/4/24
 
 - found and fixed an error in the rotate_right function that could be one of the causes of producing an extremely long hash
+
+### 6/5/24
+
+- peer programming yielded problems with signs
