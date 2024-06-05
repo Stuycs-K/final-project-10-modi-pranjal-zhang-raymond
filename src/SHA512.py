@@ -41,7 +41,6 @@ initList = [0x6a09e667f3bcc908, 0xbb67ae8584caa73b, 0x3c6ef372fe94f82b, 0xa54ff5
 
 def sha512(message):
     formatted = byteFunc.padMsg(message)
-    print(formatted)
     # print(len(formatted))
     blockNum = round(len(formatted) / 1024)
     chunks = byteFunc.splitIntoBlocks(formatted)
@@ -74,12 +73,10 @@ def sha512(message):
         G = initList[6]
         H = initList[7]
         for j in range(0, 80, 1):
-            valOne = H + byteFunc.ch(E, F, G) + byteFunc.largeSigma1(E) + byteFunc.unsignedToSigned(int(i[j], 2)) + list_constants[j]
-            print(byteFunc.largeSigma1(E))
-            print(byteFunc.ch(E, F, G))
-            print(byteFunc.unsignedToSigned(int(i[j], 2)))
+            valOne = byteFunc.unsignedToSigned(H + byteFunc.ch(E, F, G) + byteFunc.largeSigma1(E) + byteFunc.unsignedToSigned(int(i[j], 2)) + list_constants[j])
+            print(H)
             print("-----------------------")
-            valTwo = byteFunc.largeSigma0(A) + byteFunc.maj(A, B, C)
+            valTwo = byteFunc.unsignedToSigned(byteFunc.largeSigma0(A) + byteFunc.maj(A, B, C))
             H = G
             G = F
             F = E
