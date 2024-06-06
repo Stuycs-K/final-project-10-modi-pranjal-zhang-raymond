@@ -52,6 +52,16 @@
 - Started debugging the main part of the SHA512 function.
 - Started converting the main datatype of the program into integers.
 
+### 6/4/24
+
+- Looked into the accumulation of integers in our sigma values, which were hurting the accuracy of the function.
+- Researched bitwise operations to figure out how to rework our full binary adder for integers.
+
+### 6/5/24
+
+- Debugged rotateRight and sigma functions.
+- Figured out summation errors in the constant addition during the algorithm.
+
 ## Raymond Zhang
 
 ### 5/22/24

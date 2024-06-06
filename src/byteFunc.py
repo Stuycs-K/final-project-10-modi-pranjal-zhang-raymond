@@ -85,12 +85,7 @@ def processBlocks(listBlocks){
 '''
 
 def rotateRight(ints, num):
-    return ints >> num | (ints << (64 - num)) & 0xFFFFFFFFFFFFFFFF
-
-def rotateLeft(bitString, num):
-    part1 = bitString[num:]
-    part2 = bitString[:num]
-    return part1 + part2
+    return unsignedToSigned(ints >> num | (ints << (64 - num)) & 0xFFFFFFFFFFFFFFFF)
 
 def binAdd(bString1, bString2):
     # Assume len(bString1) = len(bString2)
@@ -158,6 +153,7 @@ def largeSigma0(x):
     b1 = rotateRight(x, 28)
     b2 = rotateRight(x, 34)
     b3 = rotateRight(x, 39)
+    # print(str(b1) + "\n" + str(b2) + "\n" + str(b3))
     return b1 ^ b2 ^ b3
 
 def largeSigma1(x):
@@ -180,6 +176,4 @@ def smallSigma1(x):
     return b1 ^ b2 ^ b3
 
 def unsignedToSigned(x):
-    return x - (x >> 15 << 16)
-
-print(rotateRight(5656, 2))
+    return x - (x >> 63 << 64)
