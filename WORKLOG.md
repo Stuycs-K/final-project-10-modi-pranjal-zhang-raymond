@@ -91,3 +91,8 @@
 ### 6/4/24
 
 - found and fixed an error in the rotate_right function that could be one of the causes of producing an extremely long hash
+
+### 6/5/24
+
+- peer programmed and rewrote much of our code together
+- length of the hash is correct, trying to find out why iterations are going wrong (starts on 24th iteration)
