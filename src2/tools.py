@@ -62,6 +62,7 @@ def xor_(x, y):
         xorList.append(x[i] ^ y[i])
     return xorList
 
+
 def not_(x):
     notList = []
     for i in range(len(x)):
@@ -85,6 +86,7 @@ def shiftRight(msg, num):
         shiftList.append(0)
     shiftList = shiftList + msg[:-num]
     return shiftList
+
 
 def add(x, y):
     resultList = []
@@ -134,10 +136,17 @@ def genWords(chunk):
     return wordList
 
 def largeSigOne(l):
-    return xor_xor_(rotateRight(l, 14), rotateRight(l, 18), rotateRight(l, 41))
+    print(len(l))
+    print(len(rotateRight(l, 14)))
+    '''
+    print(unsignedToSigned(int("".join(intListToStr(rotateRight(l, 14))), 2)))
+    print(unsignedToSigned(int("".join(intListToStr(rotateRight(l, 18))), 2)))
+    print(unsignedToSigned(int("".join(intListToStr(rotateRight(l, 41))), 2)))
+    '''
+    return xor_(rotateRight(l, 14), xor_(rotateRight(l, 18), rotateRight(l, 41)))
 
 def largeSigZero(l):
-    return xor_xor_(rotateRight(l, 28), rotateRight(l, 34), rotateRight(l, 39))
+    return xor_(rotateRight(l, 28), xor_(rotateRight(l, 34), rotateRight(l, 39)))
 
 def ch(x, y, z):
     return xor_(and_(x, y), and_(not_(x), z))

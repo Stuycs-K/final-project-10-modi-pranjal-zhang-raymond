@@ -16,8 +16,21 @@ def sha512(msg):
         G = initList[6]
         H = initList[7]
         for j in range(80):
+            print("Iteration " + str(j))
             valOne = tools.add(H, tools.add(tools.ch(E, F, G), tools.add(tools.largeSigOne(E), tools.add(fullWords[j], tools.intToList(constants.list_constants[j])))))
-            valTwo = tools.add(tools.largeSigZero(A), tools.maj(A, B, C))         
+            valTwo = tools.add(tools.largeSigZero(A), tools.maj(A, B, C))
+            
+            '''
+            print(tools.unsignedToSigned(int("".join(tools.intListToStr(H)), 2)))
+            print(tools.unsignedToSigned(int("".join(tools.intListToStr(G)), 2)))
+            print(tools.unsignedToSigned(int("".join(tools.intListToStr(F)), 2)))
+            print(tools.unsignedToSigned(int("".join(tools.intListToStr(E)), 2)))
+            print(tools.unsignedToSigned(int("".join(tools.intListToStr(D)), 2)))
+            print(tools.unsignedToSigned(int("".join(tools.intListToStr(C)), 2)))
+            print(tools.unsignedToSigned(int("".join(tools.intListToStr(B)), 2)))
+            print(tools.unsignedToSigned(int("".join(tools.intListToStr(A)), 2)))
+            '''
+            print("--------------")         
             H = G
             G = F
             F = E
@@ -46,4 +59,4 @@ def sha512(msg):
     return output
 
 print(sha512("hi"))
-# print(len("46741x4x85x4x33x36x61x2x4x530x462x4x4x35x501x8x24x6x341333x12x2x60x2x1x71x50x2x1x2x4x44x156x72272x2x83x4x2x62x63x702x8x473437403x7x54x8x6x2020462x8730754173x8706x70x5x6x1x5411x74x7x3x36"))
+print(len("46741c85cd3d6a1ecb30c62ccd5b018e4ad41333f2ea0ef91b0efecc4f5692272e83cea2a39028c734374039b48ae0204628730754173870690bafb411949dd6"))

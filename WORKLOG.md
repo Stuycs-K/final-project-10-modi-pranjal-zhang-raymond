@@ -62,6 +62,12 @@
 - Debugged rotateRight and sigma functions.
 - Figured out summation errors in the constant addition during the algorithm.
 
+### 6/6/24 - 6/7/24
+
+- Rewrote entire body of the code to use lists instead of other representations.
+- Got to correct hash length, focused on debugging rotateRight.
+- Made strides on finding the exact iteration (#23) where the program breaks.
+
 ## Raymond Zhang
 
 ### 5/22/24
