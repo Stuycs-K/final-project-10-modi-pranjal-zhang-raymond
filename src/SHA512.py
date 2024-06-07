@@ -64,27 +64,49 @@ def sha512(message):
             # sumWords = byteFunc.binAdd(byteFunc.intToBitstring(wordOne, 64), byteFunc.binAdd(byteFunc.intToBitstring(wordTwo, 64), byteFunc.binAdd(byteFunc.intToBitstring(wordThree, 64), byteFunc.intToBitstring(wordFour, 64))))
             i[subchunkInd] = byteFunc.intToBitstring(sumWords)
     for i in fullComponentList:
-        A = initList[0]
-        B = initList[1]    
-        C = initList[2]
-        D = initList[3]
-        E = initList[4]
-        F = initList[5]
-        G = initList[6]
-        H = initList[7]
+        A = byteFunc.unsignedToSigned(initList[0])
+        B = byteFunc.unsignedToSigned(initList[1])
+        C = byteFunc.unsignedToSigned(initList[2])
+        D = byteFunc.unsignedToSigned(initList[3])
+        E = byteFunc.unsignedToSigned(initList[4])
+        F = byteFunc.unsignedToSigned(initList[5])
+        G = byteFunc.unsignedToSigned(initList[6])
+        H = byteFunc.unsignedToSigned(initList[7])
+        print(H)
+        print(G)
+        print(F)
+        print(E)
+        print(D)
+        print(C)
+        print(B)
+        print(A)
+        print("==========================")
         for j in range(0, 80, 1):
             valOne = byteFunc.unsignedToSigned(H + byteFunc.ch(E, F, G) + byteFunc.largeSigma1(E) + byteFunc.unsignedToSigned(int(i[j], 2)) + list_constants[j])
-            print(H)
-            print("-----------------------")
+            # print(valOne)
+            # print(type(valOne))
+            # print("-----------------------")
             valTwo = byteFunc.unsignedToSigned(byteFunc.largeSigma0(A) + byteFunc.maj(A, B, C))
+            # print(valOne)
+            # print(valTwo)
+            # print("-----------------------")
             H = G
             G = F
             F = E
-            E = D + valOne
+            E = (D + valOne) & 0xFFFFFFFFFFFFFFFF
             D = C
             C = B
             B = A
-            A = valOne + valTwo
+            A = (valOne + valTwo) & 0xFFFFFFFFFFFFFFFF
+            # print(H)
+            # print(G)
+            # print(F)
+            # print(E)
+            # print(D)
+            # print(C)
+            # print(B)
+            # print(A)
+            # print("==========================")
         initList[0] += A
         initList[1] += B
         initList[2] += C
@@ -99,7 +121,6 @@ def sha512(message):
     return outputStr
 
 print(sha512("hi"))
-
 
              
 

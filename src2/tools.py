@@ -79,12 +79,15 @@ def xor_xor_(x, y, z):
 def rotateRight(msg, num):
     return msg[-num:] + msg[:-num]
 
+# def shiftRight(msg, num):
+#     shiftList = []
+#     for i in range(num):
+#         shiftList.append(0)
+#     shiftList = shiftList + msg[:-num]
+#     return shiftList
+
 def shiftRight(msg, num):
-    shiftList = []
-    for i in range(num):
-        shiftList.append(0)
-    shiftList = shiftList + msg[:-num]
-    return shiftList
+    return num * [0] + msg[:-num]
 
 def add(x, y):
     resultList = []
@@ -98,6 +101,20 @@ def add(x, y):
         else:
             carry = 0
     return resultList
+
+# def add(x, y):
+#     resultList = []
+#     for i in range(len(x)):
+#         resultList.append("")
+#     carry = 0
+#     for i in range(len(x) - 1, -1, -1):
+#         resultList[i] = x[i] ^ y[i] ^ carry
+#         # if (x[i] + y[i] + carry) // 2 == 1:
+#         #     carry = 1
+#         # else:
+#         #     carry = 0
+#         carry = maj(x[i],y[i],carry)
+#     return resultList
 
 # Misc. Functions
 
@@ -119,7 +136,7 @@ def intListToStr(intList):
     return strList
 
 def unsignedToSigned(x):
-    return x - (x >> 63 << 64)
+    return x - (x >> 15 << 16)
 
 # Processing Functions
 
@@ -135,6 +152,7 @@ def genWords(chunk):
 
 def largeSigOne(l):
     return xor_xor_(rotateRight(l, 14), rotateRight(l, 18), rotateRight(l, 41))
+    print(rotateRight(l,14))
 
 def largeSigZero(l):
     return xor_xor_(rotateRight(l, 28), rotateRight(l, 34), rotateRight(l, 39))

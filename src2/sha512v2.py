@@ -2,6 +2,11 @@ import tools, constants
 
 initList = [tools.intToList(0x6a09e667f3bcc908), tools.intToList(0xbb67ae8584caa73b), tools.intToList(0x3c6ef372fe94f82b), tools.intToList(0xa54ff53a5f1d36f1), tools.intToList(0x510e527fade682d1), tools.intToList(0x9b05688c2b3e6c1f), tools.intToList(0x1f83d9abfb41bd6b), tools.intToList(0x5be0cd19137e2179)]
 
+
+def binatodeci(binary):
+    return sum(val*(2**idx) for idx, val in enumerate(reversed(binary)))
+
+
 def sha512(msg):
     padded = tools.padMsg(msg)
     list_blocks = tools.splitIntoBlocks(padded, 1024)
@@ -17,7 +22,18 @@ def sha512(msg):
         H = initList[7]
         for j in range(80):
             valOne = tools.add(H, tools.add(tools.ch(E, F, G), tools.add(tools.largeSigOne(E), tools.add(fullWords[j], tools.intToList(constants.list_constants[j])))))
-            valTwo = tools.add(tools.largeSigZero(A), tools.maj(A, B, C))         
+            valTwo = tools.add(tools.largeSigZero(A), tools.maj(A, B, C))
+
+            print("iteration: " + str(j))
+            print("t1: " + str(binatodeci(valOne)))
+            print("H: " + str(binatodeci(H)))
+            print("ch: " + str(binatodeci(tools.ch(E,F,G))))
+            print("sig1: " + str(binatodeci(tools.largeSigOne(E))))
+            print("fullwords: " + str(binatodeci(fullWords[j])))
+            print("cons: " + str(binatodeci(tools.intToList(constants.list_constants[j]))))
+            # print("t2: " + str(binatodeci(valTwo)))
+            # print("-----------------------")
+
             H = G
             G = F
             F = E
@@ -26,6 +42,9 @@ def sha512(msg):
             C = B
             B = A
             A = tools.add(valOne, valTwo)
+            # print("A: " + str(binatodeci(A)))
+            print("-----------------------")
+
             # print(tools.unsignedToSigned(int("".join(tools.intListToStr(A)), 2)))
         initList[0] = tools.add(initList[0], A)
         initList[1] = tools.add(initList[1], B)
@@ -47,3 +66,6 @@ def sha512(msg):
 
 print(sha512("hi"))
 # print(len("46741x4x85x4x33x36x61x2x4x530x462x4x4x35x501x8x24x6x341333x12x2x60x2x1x71x50x2x1x2x4x44x156x72272x2x83x4x2x62x63x702x8x473437403x7x54x8x6x2020462x8730754173x8706x70x5x6x1x5411x74x7x3x36"))
+# 46741c85cd3d6a1ecb30c62ccd5b018e4ad41333f2ea0ef91b0efecc4f5692272e83cea2a39028c734374039b48ae0204628730754173870690bafb411949dd6
+#31886093916162222240
+#18282058366278491637
