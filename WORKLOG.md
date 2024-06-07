@@ -94,5 +94,9 @@
 
 ### 6/5/24
 
+- peer programming yielded problems with signs
+
+### 6/6/24
+
 - peer programmed and rewrote much of our code together
 - length of the hash is correct, trying to find out why iterations are going wrong (starts on 24th iteration)
