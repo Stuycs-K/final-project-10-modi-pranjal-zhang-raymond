@@ -7,7 +7,6 @@ def sha512(msg):
     list_blocks = tools.splitIntoBlocks(padded, 1024)
     for chunk in list_blocks:
         fullWords = tools.genWords(chunk)
-        print(fullWords)
         A = initList[0]
         B = initList[1]
         C = initList[2]
@@ -18,7 +17,7 @@ def sha512(msg):
         H = initList[7]
         for j in range(80):
             valOne = tools.add(H, tools.add(tools.ch(E, F, G), tools.add(tools.largeSigOne(E), tools.add(fullWords[j], tools.intToList(constants.list_constants[j])))))
-            valTwo = tools.add(tools.largeSigZero(A), tools.maj(A, B, C))             
+            valTwo = tools.add(tools.largeSigZero(A), tools.maj(A, B, C))         
             H = G
             G = F
             F = E
@@ -27,6 +26,7 @@ def sha512(msg):
             C = B
             B = A
             A = tools.add(valOne, valTwo)
+            # print(tools.unsignedToSigned(int("".join(tools.intListToStr(A)), 2)))
         initList[0] = tools.add(initList[0], A)
         initList[1] = tools.add(initList[1], B)
         initList[2] = tools.add(initList[2], C)
@@ -40,11 +40,10 @@ def sha512(msg):
         bitstring = "".join(tools.intListToStr(i))
         hexes = ""
         for i in range(0, len(bitstring), 4):
-            toConv = "0b" + bitstring[i:i + 4]
+            toConv = bitstring[i:i + 4]
             hexes += hex(int(toConv, 2))[2:]
         output += hexes
     return output
 
-sha512("hi")
-print(len("0c05560c4e26088f7ab436dcaa34c405f286417105b0e62ad00feb626ede6984383ed812bc2312bfc9a69030ebbef4fec5cd225c5788c3392691421f175bd24c"))
-          #150a14ed5bea6cc731cf86c41566ac427a8db48ef1b9fd626664b3bfbb99071fa4c922f33dde38719b8c8354e2b7ab9d77e0e67fc12843920a712e73d558e197
+print(sha512("hi"))
+# print(len("46741x4x85x4x33x36x61x2x4x530x462x4x4x35x501x8x24x6x341333x12x2x60x2x1x71x50x2x1x2x4x44x156x72272x2x83x4x2x62x63x702x8x473437403x7x54x8x6x2020462x8730754173x8706x70x5x6x1x5411x74x7x3x36"))

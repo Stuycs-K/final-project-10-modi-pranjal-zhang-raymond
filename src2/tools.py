@@ -77,7 +77,7 @@ def xor_xor_(x, y, z):
 # Manipulation Functions
 
 def rotateRight(msg, num):
-    return msg[-num:] + msg[num:]
+    return msg[-num:] + msg[:-num]
 
 def shiftRight(msg, num):
     shiftList = []
@@ -117,6 +117,9 @@ def intListToStr(intList):
     for i in intList:
         strList.append(str(i))
     return strList
+
+def unsignedToSigned(x):
+    return x - (x >> 63 << 64)
 
 # Processing Functions
 
