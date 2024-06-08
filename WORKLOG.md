@@ -35,6 +35,46 @@
 - Completed a rudimentary form of the SHA512 algorithm in SHA512.py. Began debugging the various errors that cropped up, including type mismatches and unexpected length changes.
 - Implemented the final for loop in the SHA512 algorithm, which updates the constants of the program repeatedly.
 
+### 5/30/24
+
+- Worked out the bugs to get a working SHA512 program, though the results don't match the calculator.
+- Primarily focused on debugging and fixing type errors throughout the code.
+- Focused on getting the output length to match 128.
+
+### 5/31/24
+
+- Continued debugging, using a completed Java version to see what certain values were *supposed* to be via println commands.
+- Fixed the padding functionality, which incorrectly added the length to the end of the binary message.
+- Decided on the correct functionality for filling out the list of all components.
+
+### 6/3/24
+
+- Started debugging the main part of the SHA512 function.
+- Started converting the main datatype of the program into integers.
+
+### 6/4/24
+
+- Looked into the accumulation of integers in our sigma values, which were hurting the accuracy of the function.
+- Researched bitwise operations to figure out how to rework our full binary adder for integers.
+
+### 6/5/24
+
+- Debugged rotateRight and sigma functions.
+- Figured out summation errors in the constant addition during the algorithm.
+
+### 6/6/24 - 6/7/24
+
+- Rewrote entire body of the code to use lists instead of other representations.
+- Got to correct hash length, focused on debugging rotateRight.
+- Made strides on finding the exact iteration (#23) where the program breaks.
+
+### 6/7/24
+
+- Completed the SHA-512 algorithm (on call with Raymond), by fixing an incorrect constant.
+- Fully debugged and cleaned up print statements from the code.
+- Ran some test cases.
+- Made a driver file to provide simple strings from the command line to hash (file capabilities possibly coming soon).
+
 ## Raymond Zhang
 
 ### 5/22/24
