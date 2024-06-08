@@ -43,5 +43,3 @@ def sha512(msg):
             hexes += hex(int(toConv, 2))[2:]
         output += hexes
     return output
-
-print(sha512("hello"))
