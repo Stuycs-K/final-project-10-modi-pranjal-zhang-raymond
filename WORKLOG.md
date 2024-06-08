@@ -140,3 +140,9 @@
 
 - peer programmed and rewrote much of our code together
 - length of the hash is correct, trying to find out why iterations are going wrong (starts on 24th iteration)
+
+### 6/7/24
+
+- debugged rotate function with Pranjal in class
+- turns out the problem was not any of the functions but the constant list
+- after much debugging and the above realization, we've finished our SHA512 implementation
