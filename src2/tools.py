@@ -136,13 +136,6 @@ def genWords(chunk):
     return wordList
 
 def largeSigOne(l):
-    print(len(l))
-    print(len(rotateRight(l, 14)))
-    '''
-    print(unsignedToSigned(int("".join(intListToStr(rotateRight(l, 14))), 2)))
-    print(unsignedToSigned(int("".join(intListToStr(rotateRight(l, 18))), 2)))
-    print(unsignedToSigned(int("".join(intListToStr(rotateRight(l, 41))), 2)))
-    '''
     return xor_(rotateRight(l, 14), xor_(rotateRight(l, 18), rotateRight(l, 41)))
 
 def largeSigZero(l):
@@ -153,3 +146,4 @@ def ch(x, y, z):
 
 def maj(x, y, z):
     return xor_xor_(and_(x, y), and_(x, z), and_(y, z))
+

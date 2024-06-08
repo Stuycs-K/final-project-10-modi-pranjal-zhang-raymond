@@ -68,6 +68,13 @@
 - Got to correct hash length, focused on debugging rotateRight.
 - Made strides on finding the exact iteration (#23) where the program breaks.
 
+### 6/7/24
+
+- Completed the SHA-512 algorithm (on call with Raymond), by fixing an incorrect constant.
+- Fully debugged and cleaned up print statements from the code.
+- Ran some test cases.
+- Made a driver file to provide simple strings from the command line to hash (file capabilities possibly coming soon).
+
 ## Raymond Zhang
 
 ### 5/22/24
