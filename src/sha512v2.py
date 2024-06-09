@@ -2,8 +2,12 @@ import tools, constants
 
 initList = [tools.intToList(0x6a09e667f3bcc908), tools.intToList(0xbb67ae8584caa73b), tools.intToList(0x3c6ef372fe94f82b), tools.intToList(0xa54ff53a5f1d36f1), tools.intToList(0x510e527fade682d1), tools.intToList(0x9b05688c2b3e6c1f), tools.intToList(0x1f83d9abfb41bd6b), tools.intToList(0x5be0cd19137e2179)]
 
-def sha512(msg):
-    padded = tools.padMsg(msg)
+def sha512(mode, msg):
+    padded = ""
+    if mode == "S":
+        padded = tools.padMsg(tools.strToBitStr(msg))
+    elif mode == "F":
+        padded = tools.padFile(msg)
     list_blocks = tools.splitIntoBlocks(padded, 1024)
     for chunk in list_blocks:
         fullWords = tools.genWords(chunk)

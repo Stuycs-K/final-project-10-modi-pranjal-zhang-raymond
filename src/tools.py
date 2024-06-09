@@ -21,20 +21,30 @@ def strToList(message):
         list.append(int(i))
     return list
 
-def padMsg(message):
-    bitMsg = strToBitStr(message)
-    bitMsgLen = len(bitMsg)
+def padMsg(bits):
+    bitMsgLen = len(bits)
     extraMults = 0
     for i in range(1, 3):
         if (((bitMsgLen // 1024) + i) * 1024 - bitMsgLen) >= 128:
             extraMults = i
             break
     desiredLength = ((bitMsgLen // 1024) + extraMults) * 1024 - 128
-    paddedStr = bitMsg
+    paddedStr = bits
     if desiredLength != bitMsgLen:
-        paddedStr = bitMsg + "1" + "0" * (desiredLength - bitMsgLen - 1)
+        paddedStr = bits + "1" + "0" * (desiredLength - bitMsgLen - 1)
     lenMessageBits = intToBitstring(bitMsgLen, 128)
     return strToList(paddedStr + lenMessageBits)
+
+def padFile(fileName):
+    file = open(fileName, mode = "rb")
+    byteFull = file.read()
+    hex = byteFull.hex()
+    bits = ""
+    for i in range(0, len(hex), 2):
+        intRep = int(hex[i: i + 2], 16)
+        bits += bin(intRep)[2:].zfill(8)
+    return padMsg(bits)
+        
 
 def splitIntoBlocks(paddedStr, desiredLength = 1024):
     listBlocks = []

@@ -75,6 +75,11 @@
 - Ran some test cases.
 - Made a driver file to provide simple strings from the command line to hash (file capabilities possibly coming soon).
 
+### 6/9/24
+
+- Added a file hashing functionality for the algorithm, based on command line arguments.
+- Added a makefile regarding code implementation, and updated the README accordingly.
+
 ## Raymond Zhang
 
 ### 5/22/24
