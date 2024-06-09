@@ -98,3 +98,5 @@ After all the blocks goes through the algorithm, we are left with a final 512 bi
 
 [Medium article we used for the Algorithm][https://medium.com/@zaid960928/cryptography-explaining-sha-512-ad896365a0c1]
 
+[Link to the Java implementation of SHA-512 that we used to help debug (trittimo)][https://github.com/trittimo/SHA512]
+
