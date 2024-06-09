@@ -78,9 +78,20 @@ h | 0x5be0cd19137e2179
 
 Now we get to the fun part!
 
+The below diagram is the entire algorithm at a glance:
+
 ![Message Processing](presentation_imgs/pic2.webp)
 
+The below diagram is each round in more detail:
+
 ![Rounds](presentation_imgs/pic3.webp)
+
+As we can see, in each round of the message processing phase, more constants are used. These aren't random, either. Taking the first 64 bits of the cube roots of the first 80 prime numbers, we get these values.
+
+### SHA-512 Output
+
+After all the blocks goes through the algorithm, we are left with a final 512 bit hash digest which will be our output. 
+
 ### Sources
 
 [General Facts link][https://komodoplatform.com/en/academy/sha-512/#:~:text=SHA%2D512%2C%20or%20Secure%20Hash,hashing%2C%20and%20digital%20record%20verification.]
