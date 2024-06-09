@@ -1,5 +1,11 @@
 # SHA-512
 
+
+
+Presentation by Pranjal Modi and Raymond Zhang
+
+
+
 ## SHA-512 General Facts
 
 SHA-512 is a hash function that was designed by the National Security Agency (NSA) and published by the National Institute of Standards and Technology (NIST) in 2001 as a Federal Information Processing Standard (FIPS).
@@ -78,11 +84,11 @@ h | 0x5be0cd19137e2179
 
 Now we get to the fun part!
 
-The below diagram is the entire algorithm at a glance:
+The below diagram is of the entire algorithm at a glance:
 
 ![Message Processing](presentation_imgs/pic2.webp)
 
-The below diagram is each round in more detail:
+The below diagram is of each round in more detail:
 
 ![Rounds](presentation_imgs/pic3.webp)
 
