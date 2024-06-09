@@ -64,19 +64,12 @@ This problem is easily solved by initializing default values in the hash buffer.
 Index | Hexadecimal Value
 --- | ---
 a | 0x6a09e667f3bcc908
-
 b | 0xbb67ae8584caa73b
-
 c | 0x3c6ef372fe94f82b
-
 d | 0xa54ff53a5f1d36f1
-
 e | 0x510e527fade682d1
-
 f | 0x9b05688c2b3e6c1f
-
 g | 0x1f83d9abfb41bd6b
-
 h | 0x5be0cd19137e2179
 
 
