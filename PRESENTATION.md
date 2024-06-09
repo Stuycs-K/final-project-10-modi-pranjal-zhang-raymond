@@ -4,14 +4,14 @@
 
 SHA-512 is a hash function that was designed by the National Security Agency (NSA) and published by the National Institute of Standards and Technology (NIST) in 2001 as a Federal Information Processing Standard (FIPS).
 
-SHA-512 helps encode important and sensitive data, like passwords, by turning input (SHA-512 is designed for input messages of up to $`2^128 - 2`$ bits, which will be explained later) into hash digests. The algorithm is commonly used for email addresses, passwords, and digital record verification, but it is also used in blockchain technology. The hash digests have a fixed length of 512 bits, or 64 bytes. In the case of SHA-512, a 512-bit hash is created; compared to its predecessor SHA-256 which only creates hashes of 256 bits (32 bytes), SHA-512 is more secure. 
+SHA-512 helps encode important and sensitive data, like passwords, by turning input (SHA-512 is designed for input messages of up to $`2^{128} - 2`$ bits, which will be explained later) into hash digests. The algorithm is commonly used for email addresses, passwords, and digital record verification, but it is also used in blockchain technology. The hash digests have a fixed length of 512 bits, or 64 bytes. In the case of SHA-512, a 512-bit hash is created; compared to its predecessor SHA-256 which only creates hashes of 256 bits (32 bytes), SHA-512 is more secure. 
 
 The strengths of SHA-512 include:
 
 * **Resistance to many cryptographic attacks**
 
   For each of the 128 characters in the output of a SHA-512 hash digest, there are 16 possible characters (0-9 and a-f). 
-  This yields $`16^(128) \approx 1.34 * 10^(154)`$ possibilities. This vastly reduces the chance of collisions occuring (when two different inputs generate the same output).
+  This yields $`16^{128} \approx 1.34 * 10^{154}`$ possibilities. This vastly reduces the chance of collisions occuring (when two different inputs generate the same output).
 
 * **Irreversible**
 
@@ -47,9 +47,28 @@ Padding is pretty simple! Taking the original input message, some padding bits a
 
 #### Size of Original Message
 
-After the padding bits, the size of the original message needs to be formatted into the input. The size value is represented by the last 128 bits of each block. This is why there is an input message length limitation. The largest number that can be represented using 128 bits is the value $`2^(128) - 1`$. Because of the necessary padding bit, the actual maximum size would be reduced to $`2^(128) - 2`$. Despite this limit, it won't be a problem for a majority of users because of the enormity of the number. 
+After the padding bits, the size of the original message needs to be formatted into the input. The size value is represented by the last 128 bits of each block. This is why there is an input message length limitation. The largest number that can be represented using 128 bits is the value $`2^{128} - 1`$. Because of the necessary padding bit, the actual maximum size would be reduced to $`2^{128} - 2`$. Despite this limit, it won't be a problem for a majority of users because of the enormity of the number. 
 
 ![Input Formatting](presentation_imgs/pic1.jpg)
+
+### Hash buffer
+
+The algorithm of SHA-512 is designed in such a way that blocks will have to depend on results of previous blocks. 
+
+Hence a *hash buffer* of length 8 (with indexes a, b, c, d, e, f, g, and h) is used to store these intermediate results. The last intermediate result will be used to form the output of the SHA-512 algorithm. 
+
+What about the very first block? What values will that block use, since there's no previous processing to yield hash values?
+
+This problem is easily solved by initializing default values in the hash buffer. The constants in hexadecimal are as follows:
+
+a = 0x6a09e667f3bcc908
+b = 0xbb67ae8584caa73b
+c = 0x3c6ef372fe94f82b
+d = 0xa54ff53a5f1d36f1
+e = 0x510e527fade682d1
+f = 0x9b05688c2b3e6c1f
+g = 0x1f83d9abfb41bd6b
+h = 0x5be0cd19137e2179
 
 
 ### Sources
