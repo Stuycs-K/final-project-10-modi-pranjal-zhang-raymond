@@ -37,7 +37,7 @@ The strengths of SHA-512 include:
 
 ### Input Formatting
 
-Data is inputted, which must have an input size limit. This means that not all input sizes can be hashed. 
+Data is inputted, which must have an input size limit (explained later). This means that not all input sizes can be hashed.
 
 Therefore, the input has to be formatted to the correct size for the algorithm to be performed on it. 
 
