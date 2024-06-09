@@ -78,9 +78,9 @@ h | 0x5be0cd19137e2179
 
 Now we get to the fun part!
 
-![Message Processing][presentation_imgs/pic2.webp]
+![Message Processing](presentation_imgs/pic2.webp)
 
-![Rounds][presentation_imgs/pic3.webp]
+![Rounds](presentation_imgs/pic3.webp)
 ### Sources
 
 [General Facts link][https://komodoplatform.com/en/academy/sha-512/#:~:text=SHA%2D512%2C%20or%20Secure%20Hash,hashing%2C%20and%20digital%20record%20verification.]
