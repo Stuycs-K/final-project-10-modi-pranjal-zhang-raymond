@@ -51,7 +51,7 @@ After the padding bits, the size of the original message needs to be formatted i
 
 ![Input Formatting](presentation_imgs/pic1.jpg)
 
-### Hash buffer
+### Hash Buffer
 
 The algorithm of SHA-512 is designed in such a way that blocks will have to depend on results of previous blocks. 
 
@@ -72,7 +72,15 @@ f | 0x9b05688c2b3e6c1f
 g | 0x1f83d9abfb41bd6b
 h | 0x5be0cd19137e2179
 
+**Fun fact!** These values aren't random! If we take the first 8 prime numbers (2, 3, 5, 7, 11, 13, 17, 19), and then square root them, and then take the first 64 bits of each fractional part, we will get these values.
 
+### Message Processing
+
+Now we get to the fun part!
+
+![Message Processing][presentation_imgs/pic2.webp]
+
+![Rounds][presentation_imgs/pic3.webp]
 ### Sources
 
 [General Facts link][https://komodoplatform.com/en/academy/sha-512/#:~:text=SHA%2D512%2C%20or%20Secure%20Hash,hashing%2C%20and%20digital%20record%20verification.]
