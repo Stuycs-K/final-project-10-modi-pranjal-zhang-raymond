@@ -16,7 +16,7 @@ We decided to implement SHA-512 in Python for our project. Belonging to the SHA-
 
 ## Instructions
 
-To run the program, first determine whether or not a file or individual message needs to be hashed. Also, make sure to be in the **main directory** of the repository, rather than the `src` directory, when running the code. To hash a file, run the command `make hashFile ARGS="fileName"`, in which the `fileName` is a full path to the desired file with the extension included. To hash a message, use the command `make hashMessage ARGS="message"`. In both situations. the output hash will be directed into the command line. No libraries or other ancillary code pieces are required to run this hashing algorithm; using the command formats above will provide the correct output. 
+To run the program, first determine whether or not a file or individual message needs to be hashed. Also, make sure to be in the **main directory** of the repository, rather than the `src` directory, when running the code. To hash a file, run the command `make hashFile ARGS="fileName"`, in which the `fileName` is a full path to the desired file with the extension included. To hash a message, use the command `make hashMessage ARGS="message"` (make sure to surround the message with single quotes if it contains spaces). In both situations. the output hash will be directed into the command line. No libraries or other ancillary code pieces are required to run this hashing algorithm; using the command formats above will provide the correct output. 
 
 ## Presentation
 **Video Link:** https://drive.google.com/file/d/157wdt0pMDYVoRLySpv62q8KrCZzOmnqj/view?usp=sharing
