@@ -151,3 +151,7 @@
 - debugged rotate function with Pranjal in class
 - turns out the problem was not any of the functions but the constant list
 - after much debugging and the above realization, we've finished our SHA512 implementation
+
+### 6/9/24
+
+- created and recorded video
