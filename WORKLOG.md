@@ -79,6 +79,7 @@
 
 - Added a file hashing functionality for the algorithm, based on command line arguments.
 - Added a makefile regarding code implementation, and updated the README accordingly.
+- Completed video, finalized README and WORKLOG.
 
 ## Raymond Zhang
 
@@ -155,3 +156,11 @@
 ### 6/9/24
 
 - created and recorded video
+
+## References and Resources (Also in [PRESENTATION.MD](https://github.com/Stuycs-K/final-project-10-modi-pranjal-zhang-raymond/blob/main/PRESENTATION.md))
+
+[General Facts link](https://komodoplatform.com/en/academy/sha-512/#:~:text=SHA%2D512%2C%20or%20Secure%20Hash,hashing%2C%20and%20digital%20record%20verification.)
+
+[Medium article we used for the Algorithm](https://medium.com/@zaid960928/cryptography-explaining-sha-512-ad896365a0c1)
+
+[Link to the Java implementation of SHA-512 that we used to help debug (trittimo)](https://github.com/trittimo/SHA512)
