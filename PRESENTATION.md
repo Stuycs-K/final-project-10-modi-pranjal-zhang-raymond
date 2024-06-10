@@ -100,9 +100,9 @@ After all the blocks goes through the algorithm, we are left with a final 512 bi
 
 ### Sources
 
-[General Facts link][https://komodoplatform.com/en/academy/sha-512/#:~:text=SHA%2D512%2C%20or%20Secure%20Hash,hashing%2C%20and%20digital%20record%20verification.]
+[General Facts link](https://komodoplatform.com/en/academy/sha-512/#:~:text=SHA%2D512%2C%20or%20Secure%20Hash,hashing%2C%20and%20digital%20record%20verification.)
 
-[Medium article we used for the Algorithm][https://medium.com/@zaid960928/cryptography-explaining-sha-512-ad896365a0c1]
+[Medium article we used for the Algorithm](https://medium.com/@zaid960928/cryptography-explaining-sha-512-ad896365a0c1)
 
-[Link to the Java implementation of SHA-512 that we used to help debug (trittimo)][https://github.com/trittimo/SHA512]
+[Link to the Java implementation of SHA-512 that we used to help debug (trittimo)](https://github.com/trittimo/SHA512)
 
