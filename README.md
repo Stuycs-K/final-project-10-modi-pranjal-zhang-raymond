@@ -21,3 +21,4 @@ To run the program, first determine whether or not a file or individual message 
 ## Presentation
 **Video Link:** https://drive.google.com/file/d/157wdt0pMDYVoRLySpv62q8KrCZzOmnqj/view?usp=sharing
 **PRESENTATION.md Link:** https://github.com/Stuycs-K/final-project-10-modi-pranjal-zhang-raymond/blob/main/PRESENTATION.md
+**Presentation Images Link:** https://github.com/Stuycs-K/final-project-10-modi-pranjal-zhang-raymond/tree/main/presentation_imgs
